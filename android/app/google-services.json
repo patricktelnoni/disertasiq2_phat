@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "339314014246",
+    "project_id": "disertasikitto",
+    "storage_bucket": "disertasikitto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339314014246:android:2265bc9ec88e4fca564ee7",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL9D8x_syqlJLMEgrEkSiMhoi5DUk126Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
