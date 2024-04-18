@@ -13,7 +13,11 @@ const HomeScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const kirimData = () => {
     //Alert.alert('Data', email);
-    navigation.navigate('Profile', {email: email, password:password})
+    navigation.navigate('Profile', {email: email, password: password});
+  };
+
+  const tarikData = () => {
+    navigation.navigate('Proyeklist');
   };
   return (
     <View
@@ -43,6 +47,7 @@ const HomeScreen = ({navigation}) => {
           secureTextEntry={true}
         />
         <Button title="Submit" onPress={kirimData} />
+        <Button title="Tarik data" onPress={tarikData} />
       </View>
     </View>
   );
