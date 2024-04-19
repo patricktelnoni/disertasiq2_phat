@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, View, Button, TextInput, Alert} from 'react-native';
+import CustomText from '../component/CustomText.tsx';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+  },
+  textInput: {
+    color: 'black',
   },
 });
 
@@ -19,6 +23,10 @@ const HomeScreen = ({navigation}) => {
   const tarikData = () => {
     navigation.navigate('Proyeklist');
   };
+
+  const formProyek = () => {
+    navigation.navigate('FormProyek');
+  };
   return (
     <View
       style={[
@@ -29,28 +37,27 @@ const HomeScreen = ({navigation}) => {
         },
       ]}>
       <View style={{flex: 0}}>
-        <Text
-          style={{
-            fontWeight: 'bold',
-            fontSize: 24,
-            textAlign: 'center',
-          }}>
-          Demo form
-        </Text>
+        <CustomText isi="Demo form" />
+
       </View>
       <View style={{flex: 0.5}}>
-        <TextInput placeholder="Email" value={email} onChangeText={setEmail} />
+        <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={styles.textInput}/>
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
+          style={styles.textInput}
+          placeholderTextColor="#000"
         />
         <Button title="Submit" onPress={kirimData} />
         <Button title="Tarik data" onPress={tarikData} />
+        <Button title="Form Proyek" onPress={formProyek} />
       </View>
     </View>
   );
 };
+
+
 
 export default HomeScreen;

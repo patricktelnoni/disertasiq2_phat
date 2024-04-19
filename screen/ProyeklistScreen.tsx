@@ -1,11 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, View, Text} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Alert,
+} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
+import CustomSmallText from '../component/CustomSmallText.tsx';
 
 const ProyeklistScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   const [proyeklist, setProyeklist] = useState([]); // Initial empty array of users
 
+  const getDetail = () => {
+    navigation.navigate('ProyekDetail');
+  };
   useEffect(() => {
     const subscriber = firestore()
       .collection('proyek')
@@ -32,16 +43,13 @@ const ProyeklistScreen = ({navigation}) => {
     <FlatList
       data={proyeklist}
       renderItem={({item}) => (
-        <View
-          style={{
-            height: 50,
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text>User ID: {item.age}</Text>
-          <Text>User Name: {item.name}</Text>
-        </View>
+        <TouchableWithoutFeedback
+          onPress={() => getDetail()}>
+          <View>
+            <Text>ID: {item.age}</Text>
+            <Text>Title: {item.name}</Text>
+          </View>
+        </TouchableWithoutFeedback>
       )}
     />
   );
