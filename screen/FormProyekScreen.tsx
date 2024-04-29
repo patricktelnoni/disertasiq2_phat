@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, View, Button, TextInput, Alert} from 'react-native';
 import CustomText from '../component/CustomText.tsx';
+import firestore from "@react-native-firebase/firestore";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,9 +13,9 @@ const styles = StyleSheet.create({
   },
 });
 
+const proyekCollection = firestore().collection('proyek');
+
 const FormProyekScreen = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [namaPaket, setNamaPaket] = useState('');
   const [namaPpk, setNamaPpk] = useState('');
   const [namaSatker, setNamaSatker] = useState('');
@@ -22,7 +23,15 @@ const FormProyekScreen = ({navigation}) => {
   const [nomorKontrak, setNomorKontrak] = useState('');
   const kirimData = () => {
     //Alert.alert('Data', email);
-    navigation.navigate('Profile', {email: email, password: password});
+    proyekCollection.add({
+      nama_paket: namaPaket,
+      nama_ppk: namaPpk,
+      nama_satker: namaSatker,
+      nilai_kontrak: nilaiKontrak,
+      nomor_kontrak: nomorKontrak,
+    }).then(() => {
+      console.log('Proyek Added');
+    });
   };
 
   const tarikData = () => {
@@ -70,7 +79,7 @@ const FormProyekScreen = ({navigation}) => {
           placeholderTextColor="#000"
         />
         <TextInput
-          placeholder="Nama PPK"
+          placeholder="Nomor Kontrak"
           value={nomorKontrak}
           onChangeText={setNomorKontrak}
           style={styles.textInput}

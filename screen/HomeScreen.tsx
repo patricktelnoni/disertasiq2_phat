@@ -27,6 +27,10 @@ const HomeScreen = ({navigation}) => {
   const formProyek = () => {
     navigation.navigate('FormProyek');
   };
+  const sideNav = () => {
+    navigation.navigate('SideNavigation');
+  };
+
   return (
     <View
       style={[
@@ -53,6 +57,7 @@ const HomeScreen = ({navigation}) => {
         <Button title="Submit" onPress={kirimData} />
         <Button title="Tarik data" onPress={tarikData} />
         <Button title="Form Proyek" onPress={formProyek} />
+        <Button title="Side Nav" onPress={sideNav} />
       </View>
     </View>
   );
