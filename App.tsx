@@ -1,6 +1,8 @@
+import "react-native-gesture-handler";
 import React, {useState} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import 'react-native-gesture-handler';
 import HomeScreen from "./screen/HomeScreen.tsx";
 import ProfileScreen from "./screen/ProfileScreen.tsx";
 import ProyeklistScreen from "./screen/ProyeklistScreen.tsx";

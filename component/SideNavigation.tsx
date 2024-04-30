@@ -1,32 +1,36 @@
 import * as React from 'react';
-import { 
-  Menu, 
-  Box, 
-  NativeBaseProvider, 
-  Pressable, 
-  HamburgerIcon 
-} from 'native-base';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Example = () =>{
+function HomeScreen({ navigation }) {
   return (
-    <NativeBaseProvider>
-        <Box w="90%" alignItems="center">
-          <Menu w="190" trigger={triggerProps => {
-            return <Pressable accessibilityLabel="More options menu" {...triggerProps}>
-                    <HamburgerIcon />
-                  </Pressable>;
-          }}>
-            <Menu.Item>Arial</Menu.Item>
-            <Menu.Item>Nunito Sans</Menu.Item>
-            <Menu.Item>Roboto</Menu.Item>
-            <Menu.Item>Poppins</Menu.Item>
-            <Menu.Item>SF Pro</Menu.Item>
-            <Menu.Item>Helvetica</Menu.Item>
-            <Menu.Item>Cookie</Menu.Item>
-          </Menu>
-        </Box>
-    </NativeBaseProvider>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
+    </View>
   );
 }
 
-export default Example;
+function NotificationsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+export default function Example() {
+  return (
+    <NavigationContainer independent={true}>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
