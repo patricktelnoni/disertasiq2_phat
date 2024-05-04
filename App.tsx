@@ -7,10 +7,12 @@ import HomeScreen from "./screen/HomeScreen.tsx";
 import ProfileScreen from "./screen/ProfileScreen.tsx";
 import ProyeklistScreen from "./screen/ProyeklistScreen.tsx";
 import FormProyekScreen from "./screen/FormProyekScreen.tsx";
-import ProyekDetailScreen from "./screen/ProyekDetailScreen.tsx";
+import ProyekDetailScreen from "./screen/kontraktor/IsiInfoProyek.tsx";
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
+import IsiInfoProyekScreen from "./screen/kontraktor/IsiInfoProyek.tsx";
+import LaporanDimensiPekerjaan from "./screen/kontraktor/LaporanDimensiPekerjaan.tsx";
+import LaporanDimensiPekerjaanScreen from "./screen/kontraktor/LaporanDimensiPekerjaan.tsx";
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +29,8 @@ export default function DrawerNav() {
         <Drawer.Screen name="Tampilan Laporan Kesiapan Lahan Kerja" component={ProyeklistScreen} />
         <Drawer.Screen name="Pengisian Laporan Kuantitas Pekerjaan" component={ProyeklistScreen} />
         <Drawer.Screen name="Tampilan Laporan Kuantitas Pekerjaan" component={ProyeklistScreen} />
+        <Drawer.Screen name="Add Info Proyek" component={IsiInfoProyekScreen} />
+        <Drawer.Screen name="Add Dimensi Proyek" component={LaporanDimensiPekerjaanScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
