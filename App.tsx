@@ -13,6 +13,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import IsiInfoProyekScreen from "./screen/kontraktor/IsiInfoProyek.tsx";
 import LaporanDimensiPekerjaanScreen from "./screen/kontraktor/LaporanDimensiPekerjaan.tsx";
 import CameraView from "./screen/kontraktor/TestCameraScreen.tsx";
+import LaporanKesiapanLahanScreen from "./screen/kontraktor/LaporanKesiapanLahan.tsx";
 
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ export default function DrawerNav() {
         <Drawer.Screen name="Tampilan Laporan Kuantitas Pekerjaan" component={ProyeklistScreen} />
         <Drawer.Screen name="Add Info Proyek" component={IsiInfoProyekScreen} />
         <Drawer.Screen name="Add Dimensi Proyek" component={LaporanDimensiPekerjaanScreen} />
+        <Drawer.Screen name="Laporan Kesiapan Lahan" component={LaporanKesiapanLahanScreen} />
         <Drawer.Screen name="Test Camera" component={CameraView} />
       </Drawer.Navigator>
     </NavigationContainer>

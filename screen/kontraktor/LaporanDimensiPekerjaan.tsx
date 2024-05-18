@@ -97,6 +97,7 @@ const LaporanDimensiPekerjaanScreen = ({navigation}) => {
               value={fotoPengukuranPanjang}
               onChangeText={setFotoPengukuranPanjang}
               style={styles.textInput}
+              editable={false}
               placeholderTextColor="#000"
             />
           
@@ -131,6 +132,7 @@ const LaporanDimensiPekerjaanScreen = ({navigation}) => {
               value={fotoPengukuranLebar}
               onChangeText={setFotoPengukuranLebar}
               style={styles.textInput}
+              editable={false}
               placeholderTextColor="#0A1"
             />
             
@@ -153,6 +155,7 @@ const LaporanDimensiPekerjaanScreen = ({navigation}) => {
             <TextInput
               placeholder="Dokumentasi Pengukuran Tebal"
               value={fotoPengukuranTebal}
+              editable={false}
               onChangeText={setFotoPengukuranTebal}
               style={styles.textInput}
               placeholderTextColor="#0A1"
